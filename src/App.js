@@ -9,7 +9,7 @@ class Stocks extends Component {
     this.state = {stocks: new Map()};
     
     // Connect to Kaazing.io SSE
-    let eventSource = new EventSource("https://a8uofb8l.streaming.kaazing.io/topic/sandbox.stocks");
+    let eventSource = new EventSource("https://streams.kaazing.net/sandbox/stocks");
 
     eventSource.onmessage = (e) => {
         this.updateStock(JSON.parse(e.data));
@@ -42,9 +42,9 @@ class Stocks extends Component {
           <tr>
             <th>Symbol</th>
             <th>Name</th>
-            <th>Mkt Cap</th>
-            <th>Price</th>
-            <th>Change</th>
+            <th class="priceHead">Mkt Cap</th>
+            <th class="priceHead">Price</th>
+            <th class="priceHead">Change</th>
           </tr>
         </thead>
         <tbody>
@@ -66,7 +66,7 @@ class Stocks extends Component {
                   :
                   <td className={stock.change > 0 ? "higherPrice" : "lowerPrice"}>
                     {stock.change}
-                    <span>
+                    <span class="arrow">
                     {stock.change > 0 
                       ? 
                       "\u25B2"
@@ -88,7 +88,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h2>Kaazing.io Demo - Stock Prices</h2>
+        <h2>kaazing.io Demo - Stock Prices</h2>
         <Stocks/>
       </div>
     );
