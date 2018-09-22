@@ -58,19 +58,19 @@ class Stocks extends Component {
                 <td className="price">${stock.price.toFixed(2) || 0.0}</td>
                 {stock.change === ""
                   ?
-                  <td></td>
+                    <td></td>
                   :
-                  <td className={stock.change > 0 ? "higherPrice greenArrow" : "lowerPrice redArrow"}>
-                    {stock.change}
-                    <span>
-                    {stock.change > 0 
-                      ? 
-                      "\u25B2"
-                      : 
-                      "\u25BC"
-                    }
-                    </span>
-                  </td>
+                    <td className={stock.change > 0 ? "higherPrice greenArrow" : "lowerPrice redArrow"}>
+                      {stock.change}
+                      <span>
+                        {stock.change > 0 
+                          ? 
+                          "\u25B2"
+                          : 
+                          "\u25BC"
+                        }
+                      </span>
+                    </td>
                 }
               </tr>
           )}
