@@ -5,6 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 You can find the full version of the Create React App guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## Installation
+Run `npm install`
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -20,7 +23,7 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](#running-tests) for more information.
+See the [Create React App guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) for more information.
 
 ### `npm run build`
 
