@@ -22,6 +22,7 @@ class Stocks extends Component {
     if (stocksMap.has(stock.symbol)) {
       stock.change = (stocksMap.get(stock.symbol).price - stock.price).toFixed(2);
       stock.timestamp = new Date().getTime();
+      stock.priceIsHigher = (stock.change > 0);
     }
     else {
       stock.change = "";
@@ -51,7 +52,7 @@ class Stocks extends Component {
             else return 0;
           })
           .map((stock, index) =>
-              <tr key={stock.symbol} className={stock.timestamp > now-50 ? stock.change > 0 ? "changedUp" : "changedDown" : ""}> 
+              <tr key={stock.symbol} className={stock.timestamp > now-50 ? stock.priceIsHigher ? "changedUp" : "changedDown" : ""}> 
                 <td>{stock.symbol}</td>
                 <td>{stock.name}</td>
                 <td className="price">${stock.marketCap} Bn</td>
@@ -60,10 +61,10 @@ class Stocks extends Component {
                   ?
                     <td></td>
                   :
-                    <td className={stock.change > 0 ? "higherPrice greenArrow" : "lowerPrice redArrow"}>
+                    <td className={stock.priceIsHigher ? "higherPrice greenArrow" : "lowerPrice redArrow"}>
                       {stock.change}
                       <span>
-                        {stock.change > 0 
+                        {stock.priceIsHigher 
                           ? 
                           "\u25B2"
                           : 
