@@ -30,10 +30,6 @@ class Stocks extends Component {
     this.setState(stocksMap);
   }
 
-  componentDidMount() {
-    console.log("App.js componentDidMount()");
-  }
-
   render() {
     let now = new Date().getTime();
     return (
@@ -42,9 +38,9 @@ class Stocks extends Component {
           <tr>
             <th>Symbol</th>
             <th>Name</th>
-            <th class="priceHead">Mkt Cap</th>
-            <th class="priceHead">Price</th>
-            <th class="priceHead">Change</th>
+            <th className="priceHead">Mkt Cap</th>
+            <th className="priceHead">Price</th>
+            <th className="priceHead">Change</th>
           </tr>
         </thead>
         <tbody>
@@ -58,8 +54,8 @@ class Stocks extends Component {
               <tr key={stock.symbol} className={stock.timestamp > now-50 ? stock.change > 0 ? "changedUp" : "changedDown" : ""}> 
                 <td>{stock.symbol}</td>
                 <td>{stock.name}</td>
-                <td class="price">${stock.marketCap} Bn</td>
-                <td class="price">${stock.price.toFixed(2) || 0.0}</td>
+                <td className="price">${stock.marketCap} Bn</td>
+                <td className="price">${stock.price.toFixed(2) || 0.0}</td>
                 {stock.change === ""
                   ?
                   <td></td>
