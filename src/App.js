@@ -55,7 +55,7 @@ class Stocks extends Component {
             else return 0;
           })
           .map((stock, index) =>
-              <tr key={stock.symbol} className={stock.timestamp > now-50 ? "changed" : ""}> 
+              <tr key={stock.symbol} className={stock.timestamp > now-50 ? stock.change > 0 ? "changedUp" : "changedDown" : ""}> 
                 <td>{stock.symbol}</td>
                 <td>{stock.name}</td>
                 <td class="price">${stock.marketCap} Bn</td>
@@ -64,9 +64,9 @@ class Stocks extends Component {
                   ?
                   <td></td>
                   :
-                  <td className={stock.change > 0 ? "higherPrice" : "lowerPrice"}>
+                  <td className={stock.change > 0 ? "higherPrice greenArrow" : "lowerPrice redArrow"}>
                     {stock.change}
-                    <span class="arrow">
+                    <span>
                     {stock.change > 0 
                       ? 
                       "\u25B2"
