@@ -1,4 +1,7 @@
-body {
+/**
+ * Copyright (c) 2018 Kaazing Corporation
+ */
+ body {
 	margin: 0;
 	font-family: sans-serif;
 	font-weight: 100;

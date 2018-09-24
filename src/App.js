@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2018 Kaazing Corporation
+ */
 // App.js
 import React, { Component } from 'react';
 import './App.css';
