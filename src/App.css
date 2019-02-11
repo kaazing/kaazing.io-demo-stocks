@@ -1,0 +1,118 @@
+/**
+ * Copyright (c) 2018 Kaazing Corporation
+ */
+ body {
+	margin: 0;
+	font-family: sans-serif;
+	font-weight: 100;
+	color: black;
+	background: whitesmoke;
+	font-size:16px;
+}
+@media only screen and (max-width: 600px) {
+	body {
+		font-size:13px;
+	}
+}
+@media only screen and (max-width: 450px) {
+	body {
+		font-size:11px;
+	}
+}
+
+.container {
+	margin: auto;
+	width: 70%;
+	text-align:center;
+}
+
+@media only screen and (max-width: 900px) {
+	.container {
+		width: 100%;
+	}
+}
+
+table {
+	border-collapse: collapse;
+	overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 20px;
+	background: linear-gradient(45deg, #000, #003355);
+	margin: auto;
+	width: 100%;
+}
+
+
+th,
+td {
+	text-align:left;
+	padding: 3px;
+	padding-left: 13px;
+    padding-right: 13px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+	height:28px;
+}
+th {
+	padding-top: 10px;
+}
+.priceHead {
+	text-align: right;
+}
+
+.price {
+	width:75px;
+	text-align: right;
+}
+
+.higherPrice {
+	color :#66FF66;
+	width:50px;
+	text-align: right;
+}
+
+.lowerPrice {
+	color :#FF7777;
+	width:75px;
+	text-align: right;
+}
+
+.changedUp {
+	background-color :rgba(255,255,255,0);
+	width:75px;
+	text-align: left;
+	animation: pulseGreen 0.8s ease-out;
+}
+@keyframes pulseGreen {
+	0% {
+		background-color :rgba(55,255,55,0.2);
+	}
+	100% {
+		background-color :rgba(255,255,255,0);
+	}
+}
+.changedDown {
+	background-color :rgba(255,255,255,0);
+	width:75px;
+	text-align: left;
+	animation: pulseRed 0.8s ease-out;
+}
+@keyframes pulseRed {
+	0% {
+		background-color :rgba(255,55,55,0.2);
+	}
+	100% {
+		background-color :rgba(255,255,255,0);
+	}
+}
+.redArrow span {
+	vertical-align: top;
+	font-size: 80%;
+    padding-left: 5px;
+}
+.greenArrow span {
+	vertical-align: bottom;
+	font-size: 80%;
+    padding-left: 5px;
+}
+
