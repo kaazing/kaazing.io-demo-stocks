@@ -5,6 +5,8 @@
 import React, { Component } from "react";
 import "./App.css";
 
+const eventSourceUrl = "https://streams.kaazing.net/sandbox/stocks";
+
 class Stocks extends Component {
   constructor(props) {
     super(props);
@@ -12,9 +14,7 @@ class Stocks extends Component {
     this.state = { stocks: new Map() };
 
     // Connect to Kaazing.io SSE
-    let eventSource = new EventSource(
-      "https://streams.kaazing.net/sandbox/stocks"
-    );
+    let eventSource = new EventSource(eventSourceUrl);
 
     eventSource.onmessage = e => {
       this.updateStock(JSON.parse(e.data));
