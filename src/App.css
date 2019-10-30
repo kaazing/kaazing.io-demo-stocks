@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2018 Kaazing Corporation
+ * Copyright (c) 2018 NTEN Corporation
  */
 body {
   margin: 0;
@@ -33,16 +33,16 @@ body {
 }
 
 .tableContainer {
-	border-radius: 10px;
+  border-radius: 10px;
   background: linear-gradient(45deg, #373d44, #39546b);
-	margin: auto;
-	padding: 30px;
+  margin: auto;
+  padding: 20px 0;
   overflow: hidden;
 }
 
 table {
   border-collapse: collapse;
-	width: 100%;
+  width: 100%;
 }
 
 th,
@@ -60,16 +60,16 @@ th {
 }
 
 .symbolHead {
-	width: 80px;
+  max-width: 80px;
 }
 
 .priceHead {
-	width: 100px;
+  max-width: 100px;
   text-align: right;
 }
 
 .price {
-  width: 75px;
+  max-width: 75px;
   text-align: right;
 }
 
@@ -86,7 +86,7 @@ th {
 }
 
 .changedUp {
-  background-color: 	rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
   width: 75px;
   text-align: left;
   animation: pulseGreen 0.8s ease-out;

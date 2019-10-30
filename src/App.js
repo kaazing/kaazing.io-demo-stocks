@@ -1,11 +1,9 @@
-/**
- * Copyright (c) 2018 Kaazing Corporation
- */
-// App.js
 import React, { Component } from "react";
 import "./App.css";
 
-const eventSourceUrl = "https://streams.kaazing.net/sandbox/stocks";
+// NOTE: Replace this URL with a valid URL from the nten.cloud console, from the sandbox configuration.
+const eventSourceUrl =
+  "https://2cpthvt3.streaming.nten.cloud/topic/sandbox.stocks";
 
 class Stocks extends Component {
   constructor(props) {
@@ -13,12 +11,28 @@ class Stocks extends Component {
 
     this.state = { stocks: new Map() };
 
-    // Connect to Kaazing.io SSE
-    let eventSource = new EventSource(eventSourceUrl);
+    if (eventSourceUrl.length > 0) {
+      let eventSource = new EventSource(eventSourceUrl);
 
-    eventSource.onmessage = e => {
-      this.updateStock(JSON.parse(e.data));
-    };
+      eventSource.onmessage = e => {
+        try {
+          const parsed = JSON.parse(e.data);
+          if (parsed.hasOwnProperty("symbol")) {
+            messageCount++;
+            this.updateStock(parsed);
+          }
+        } catch {}
+      };
+
+      const startTime = new Date();
+      let messageCount = 0;
+      setInterval(() => {
+        const now = new Date();
+        const diff = (now.getTime() - startTime.getTime()) / 1000;
+        const rate = (messageCount / diff).toFixed(1);
+        console.log(`rate: ${rate}`);
+      }, 1000);
+    }
   }
 
   updateStock = stock => {
@@ -46,9 +60,9 @@ class Stocks extends Component {
             <tr>
               <th className="symbolHead">Symbol</th>
               <th className="nameHead">Name</th>
-              <th className="priceHead">Mkt Cap</th>
               <th className="priceHead">Price</th>
               <th className="priceHead">Change</th>
+              <th className="priceHead">Mkt Cap</th>
             </tr>
           </thead>
           <tbody>
@@ -73,7 +87,6 @@ class Stocks extends Component {
                 >
                   <td>{stock.symbol}</td>
                   <td>{stock.name}</td>
-                  <td className="price">${stock.marketCap} Bn</td>
                   <td className="price">${stock.price.toFixed(2) || 0.0}</td>
                   {stock.change === "" ? (
                     <td />
@@ -89,6 +102,7 @@ class Stocks extends Component {
                       <span>{stock.priceIsHigher ? "\u25B2" : "\u25BC"}</span>
                     </td>
                   )}
+                  <td className="price">${stock.marketCap} Bn</td>
                 </tr>
               ))}
           </tbody>
@@ -102,7 +116,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h2>kaazing.io Demo - Stock Prices</h2>
+        <h2>n10.cloud demo - stock prices</h2>
         <Stocks />
       </div>
     );
