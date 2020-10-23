@@ -1,6 +1,6 @@
-# nten.cloud-demo-stocks
+# tenefit.cloud-demo-stocks
 
-Stocks demo for nten.cloud.
+Stocks demo for tenefit.cloud.
 
 <img src="artifacts/screenshot.png" width="500"></img>
 
@@ -16,7 +16,7 @@ $ npm install
 
 ## Development
 
-Before running the demo, you need to set `eventSourceUrl` in `src/App.js` to a valid URL. You can use the stock topic from your nten.cloud console for the `sandbox.stocks` topic.
+Before running the demo, you need to set `eventSourceUrl` in `src/App.js` to a valid URL. You can use the stock topic from your tenefit.cloud console for the `sandbox.stocks` topic.
 
 ### Running in dev mode
 

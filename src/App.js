@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 
-// NOTE: Replace this URL with a valid URL from the nten.cloud console, from the sandbox configuration.
-const eventSourceUrl =
-  "https://2cpthvt3.streaming.nten.cloud/topic/sandbox.stocks";
+// NOTE: Replace this URL with a valid URL from the tenefit.cloud console, from the sandbox configuration.
+const eventSourceUrl = "https://2oh1lmtk.streaming.tenefit.cloud/topic/stocks";
 
 class Stocks extends Component {
   constructor(props) {
@@ -116,7 +115,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h2>n10.cloud demo - stock prices</h2>
+        <h2>tenefit.cloud demo - stock prices</h2>
         <Stocks />
       </div>
     );
