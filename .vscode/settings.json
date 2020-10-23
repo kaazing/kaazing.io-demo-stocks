@@ -1,0 +1,11 @@
+{
+  // Format code using Prettier
+  "editor.formatOnSave": true,
+
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#ffe600",
+    "statusBar.foreground": "#ff0000",
+    "statusBar.noFolderBackground": "#212121",
+    "statusBar.debuggingBackground": "#263238"
+  }
+}
